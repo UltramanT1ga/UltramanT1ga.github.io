@@ -215,7 +215,6 @@
 <p>本博客记录一些hexo常用指令以及问题</p>
 </blockquote>
 <span id="more"></span>
-
 <h1 id="发布博客的流程"><a href="#发布博客的流程" class="headerlink" title="发布博客的流程"></a>发布博客的流程</h1><h2 id="1-传统建立文章方式"><a href="#1-传统建立文章方式" class="headerlink" title="1.传统建立文章方式"></a>1.传统建立文章方式</h2><p>一般我们都会使用 <code>hexo new &lt;title&gt;</code> 来建立文章，这种建立方法会将新文章建立在 <code>source/_posts</code> 目录下，当使用 <code>hexo generate</code> 编译 markdown 文件时，会将其 HTML 结果编译在 <code>public</code> 目录下，之后 <code>hexo deploy</code> 将会把 <code>public</code> 目录下所有文章部署到 GitHub，这是我们熟悉的 Hexo 流程。</p>
 <p>这种建立文章方式的缺点是：若我们同时编辑多篇文章，只要其中一篇文章尚未编辑完成，也会随着 <code>hexo deploy</code> 一起部署到 GitHub，也就是 GitHub 可能会看到我们尚未完成的文章。</p>
 <h2 id="建立文章草稿"><a href="#建立文章草稿" class="headerlink" title="建立文章草稿"></a>建立文章草稿</h2><blockquote>
@@ -223,7 +222,7 @@
 </blockquote>
 <p>Hexo 另外提供 <code>draft</code> 机制，它的原理是新文章将建立在 <code>source/_drafts</code> 目录下，因此 <code>hexo generate</code> 并不会将其编译到 <code>public</code> 目录下，所以 <code>hexo deploy</code> 也不会将其部署到 GitHub。</p>
 <h2 id="本机预览草稿"><a href="#本机预览草稿" class="headerlink" title="本机预览草稿"></a>本机预览草稿</h2><blockquote>
-<p>$ hexo S –draft</p>
+<p>$ hexo S —draft</p>
 </blockquote>
 <h2 id="将草稿发布为正式文章"><a href="#将草稿发布为正式文章" class="headerlink" title="将草稿发布为正式文章"></a>将草稿发布为正式文章</h2><blockquote>
 <p>$ hexo P  filename</p>
@@ -369,7 +368,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -422,7 +421,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共4.2k字</span>
+  <span class="post-count">博客全站共4.5k字</span>
 </div>
 
         

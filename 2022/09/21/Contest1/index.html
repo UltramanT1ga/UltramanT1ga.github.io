@@ -20,20 +20,23 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="单调队列优化dp利用单调队列优化dp是很常见的一种优化方式,单调队列的时间复杂度是O(n)，某些转移方程中涉及到一段连续区间转移时常用。要注意转移的连续区间左右端点需要有单调性才能使用单调队列优化">
+  <meta name="description" content="即使爆零也要补题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单调队列优化dp">
-<meta property="og:url" content="http://example.com/2022/10/01/Algotithm/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97%E4%BC%98%E5%8C%96dp/index.html">
+<meta property="og:title" content="The 2022 ICPC Asia Regionals Online Contest (I)">
+<meta property="og:url" content="http://example.com/2022/09/21/Contest1/index.html">
 <meta property="og:site_name" content="热爱可抵万难">
-<meta property="og:description" content="单调队列优化dp利用单调队列优化dp是很常见的一种优化方式,单调队列的时间复杂度是O(n)，某些转移方程中涉及到一段连续区间转移时常用。要注意转移的连续区间左右端点需要有单调性才能使用单调队列优化">
+<meta property="og:description" content="即使爆零也要补题">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-01T14:53:18.000Z">
-<meta property="article:modified_time" content="2022-10-02T00:56:36.144Z">
+<meta property="og:image" content="https://s2.loli.net/2022/09/21/pwdVgFj7lvYB4iM.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/09/21/wMKP3DRQSyzHZqc.jpg">
+<meta property="article:published_time" content="2022-09-21T12:05:40.000Z">
+<meta property="article:modified_time" content="2022-09-21T12:08:28.794Z">
 <meta property="article:author" content="Foam">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/09/21/pwdVgFj7lvYB4iM.jpg">
 
-<link rel="canonical" href="http://example.com/2022/10/01/Algotithm/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97%E4%BC%98%E5%8C%96dp/">
+<link rel="canonical" href="http://example.com/2022/09/21/Contest1/">
 
 
 <script id="page-configurations">
@@ -46,7 +49,7 @@
   };
 </script>
 
-  <title>单调队列优化dp | 热爱可抵万难</title>
+  <title>The 2022 ICPC Asia Regionals Online Contest (I) | 热爱可抵万难</title>
   
 
 
@@ -172,7 +175,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/01/Algotithm/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97%E4%BC%98%E5%8C%96dp/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/21/Contest1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -185,7 +188,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          单调队列优化dp
+          The 2022 ICPC Asia Regionals Online Contest (I)
         </h1>
 
         <div class="post-meta">
@@ -196,16 +199,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-10-01 22:53:18" itemprop="dateCreated datePublished" datetime="2022-10-01T22:53:18+08:00">2022-10-01</time>
+              <time title="创建时间：2022-09-21 20:05:40 / 修改时间：20:08:28" itemprop="dateCreated datePublished" datetime="2022-09-21T20:05:40+08:00">2022-09-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-02 08:56:36" itemprop="dateModified" datetime="2022-10-02T08:56:36+08:00">2022-10-02</time>
-              </span>
 
           
 
@@ -218,17 +215,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="单调队列优化dp"><a href="#单调队列优化dp" class="headerlink" title="单调队列优化dp"></a>单调队列优化dp</h2><p>利用单调队列优化dp是很常见的一种优化方式,单调队列的时间复杂度是O(n)，某些转移方程中涉及到一段<strong>连续区间转移</strong>时常用。要注意转移的连续区间左右端点需要有单调性才能使用单调队列优化</p>
+        <blockquote>
+<p>即使爆零也要补题</p>
+</blockquote>
 <span id="more"></span>
-<h3 id="多重背包"><a href="#多重背包" class="headerlink" title="多重背包"></a>多重背包</h3><p>利用单调队列可以将多重背包的时间复杂度优化至O(nm)，具体思路如下：</p>
-<p>我们观察多重背包的状态转移方程:</p>
-<p><code>f[i] = max(g[i - j * w] + j * v),其中0 &lt;= j &lt;= s[i];</code></p>
-<p>只有这样的式子是无法使用单调队列的，因为能转移到f[i]的状态并非g中连续的一段，但是我们发现<code>i - j * w</code>对w取模即<code>i % w</code>，也就是说，如果我们利用<code>i % w</code>对g进行分组，就可以得到w-1组连续的数组，分别将每一组进行转移，在组内的状态都是连续的，进而满足使用单调队列的一个必要条件。我们设w0为<code>i % w</code>的结果，可以得到组内的状态转移方程:</p>
-<p><code>g[i * w + w0] = max(f[(i - j) * w + w0] + j * v),其中0 &lt;= j &lt;= c</code></p>
-<p>但仅仅这样依然不能转移，因为每一项还有一个偏移量<code>j * w</code>，这个偏移量在每次转移都是不同的，因此我们需要做恒等变形，这里也是一个常用技巧</p>
-<p>令<code>k = i - j</code>，则转移方程变为</p>
-<p><code>g[i * w + w0] = max(f[k * w + w0] - k * v) + i * v,其中i-c &lt;= k &lt;= i</code>，这样就可以顺利转移了！</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e4</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> p[N][<span class="number">2</span>],l,r,<span class="type">int</span> dp[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> n,m;</span><br><span class="line">	n = <span class="built_in">read</span>(),m = <span class="built_in">read</span>();</span><br><span class="line">	<span class="keyword">while</span>(n--)&#123;</span><br><span class="line">		<span class="type">int</span> w,v,s;</span><br><span class="line">		w = <span class="built_in">read</span>(),v = <span class="built_in">read</span>(),s = <span class="built_in">read</span>();</span><br><span class="line">		<span class="comment">//体积按%w分类做单调队列</span></span><br><span class="line">		<span class="built_in">rep</span>(w0,<span class="number">0</span>,w<span class="number">-1</span>)&#123;</span><br><span class="line">			l = <span class="number">0</span>,r=<span class="number">-1</span>;</span><br><span class="line">			<span class="comment">//k用来记录出队时间 注意有个s的偏移量</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> now = w0,k = <span class="number">0</span>;now &lt;= m;now += w,k++)&#123;</span><br><span class="line">				<span class="type">int</span> o = k + s,e = dp[now] - k * v;</span><br><span class="line">				<span class="keyword">while</span>(l &lt;= r &amp;&amp; p[r][<span class="number">0</span>] &lt;= e) r--;</span><br><span class="line">				p[++r][<span class="number">0</span>] = e,p[r][<span class="number">1</span>] = o;</span><br><span class="line">				dp[now] = p[l][<span class="number">0</span>] + k * v;</span><br><span class="line">				<span class="keyword">while</span>(l &lt;= r &amp;&amp; p[l][<span class="number">1</span>] == k) l++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,dp[m]);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="C-Delete-the-Tree"><a href="#C-Delete-the-Tree" class="headerlink" title="C.Delete the Tree"></a>C.Delete the Tree</h1><p><img src="https://s2.loli.net/2022/09/21/pwdVgFj7lvYB4iM.jpg" alt="C.jpg"></p>
+<p>题解：</p>
+<p>显然shrink操作只会删去一个度数为2的点，且对其他点的度数没有影响，而度数为1的点只能由delete操作删去，删完后与其相连点度数会减1，因此答案就是度数为1的节点个数</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> d[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	n = <span class="built_in">read</span>();</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n) d[i] = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">2</span>,n)&#123;</span><br><span class="line">		<span class="type">int</span> u,v;</span><br><span class="line">		u = <span class="built_in">read</span>(),v = <span class="built_in">read</span>();</span><br><span class="line">		d[u]++,d[v]++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">	res += (n==<span class="number">1</span>)?<span class="number">1</span>:<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n) <span class="keyword">if</span>(d[i] == <span class="number">1</span>) res++;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,res);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> _;</span><br><span class="line">	<span class="keyword">for</span>(_=<span class="built_in">read</span>();_;_--)&#123;</span><br><span class="line">		<span class="built_in">solve</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="H-Step-Debugging"><a href="#H-Step-Debugging" class="headerlink" title="H.Step Debugging"></a><strong>H.Step Debugging</strong></h1><p><a href="https://sm.ms/image/wMKP3DRQSyzHZqc" target="_blank"><img src="https://s2.loli.net/2022/09/21/wMKP3DRQSyzHZqc.jpg" ></a></p>
+<p>题解：</p>
+<p>第一想法是用栈模拟出算式，再写个计算器算，但是最终总是段错误(也不知道为啥)，赛后发现是dfs可以很简便的得到答案。(还是对DFS理解不深)</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    string s;</span><br><span class="line">    <span class="keyword">while</span>(cin &gt;&gt; s,s != <span class="string">&quot;for&quot;</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[<span class="number">0</span>] == <span class="string">&#x27;l&#x27;</span>) ans = (ans + <span class="number">1</span>) % mod;</span><br><span class="line">        <span class="keyword">if</span>(s[<span class="number">0</span>] == <span class="string">&#x27;r&#x27;</span>) ans = (ans + <span class="built_in">dfs</span>()) % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> x;</span><br><span class="line">    cin &gt;&gt; x;</span><br><span class="line">    <span class="keyword">return</span> (ans * x) % mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    string s;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(cin &gt;&gt; s,s != <span class="string">&quot;fin&quot;</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[<span class="number">0</span>] == <span class="string">&#x27;l&#x27;</span>) ans = (ans + <span class="number">1</span>) % mod;</span><br><span class="line">        <span class="keyword">if</span>(s[<span class="number">0</span>] == <span class="string">&#x27;r&#x27;</span>) ans = (ans + <span class="built_in">dfs</span>()) % mod;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -244,7 +244,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2022/10/01/Algotithm/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97%E4%BC%98%E5%8C%96dp/" title="单调队列优化dp">http://example.com/2022/10/01/Algotithm/单调队列优化dp/</a>
+    <a href="http://example.com/2022/09/21/Contest1/" title="The 2022 ICPC Asia Regionals Online Contest (I)">http://example.com/2022/09/21/Contest1/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -266,10 +266,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/09/26/Algotithm/Bitset/" rel="prev" title="Bitset压位技巧">
-      <i class="fa fa-chevron-left"></i> Bitset压位技巧
+    <a href="/2022/09/20/PN%E7%BB%93/" rel="prev" title="PN结">
+      <i class="fa fa-chevron-left"></i> PN结
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/09/21/%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E6%98%93%E9%94%99/" rel="next" title="逻辑代数易错">
+      逻辑代数易错 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -338,7 +341,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97%E4%BC%98%E5%8C%96dp"><span class="nav-number">1.</span> <span class="nav-text">单调队列优化dp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85"><span class="nav-number">1.1.</span> <span class="nav-text">多重背包</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-Delete-the-Tree"><span class="nav-number">1.</span> <span class="nav-text">C.Delete the Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#H-Step-Debugging"><span class="nav-number">2.</span> <span class="nav-text">H.Step Debugging</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -168,6 +168,139 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/04/Round824/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Foam">
+      <meta itemprop="description" content="有你在的地方，天气明朗，万物可爱。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="热爱可抵万难">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/04/Round824/" class="post-title-link" itemprop="url">Codeforces Round</a>
+        </h2>
+
+        <div class="post-meta">
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-10-04 13:56:14 / 修改时间：14:03:51" itemprop="dateCreated datePublished" datetime="2022-10-04T13:56:14+08:00">2022-10-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="C-Phase-Shift"><a href="#C-Phase-Shift" class="headerlink" title="C.Phase Shift"></a>C.<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1735/problem/C">Phase Shift</a></h2><p>题解：</p>
+<p>此题显然是贪心找每个字母所能对应最小的字母，这个找寻的字母需要满足之前没有其他字母与其配对</p>
+<p>另外，此题还要判断是否有环，我们不能在26个字母成环之前现在局部成环，想要判断可以使用并查集，保证在26个字母配对前没有局部成环。当配对到第26对时才可以成环，其他时候都不能成环</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> s[N];</span><br><span class="line">map&lt;<span class="type">char</span>,<span class="type">char</span>&gt; m1,m2;</span><br><span class="line"><span class="comment">//DSU板子</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	m1.<span class="built_in">clear</span>(),m2.<span class="built_in">clear</span>();</span><br><span class="line">	<span class="function">DSU <span class="title">d</span><span class="params">(<span class="number">26</span>)</span></span>;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %s&quot;</span>,&amp;n,s+<span class="number">1</span>);</span><br><span class="line">	<span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">char</span> c = <span class="string">&#x27;a&#x27;</span>;c &lt;= <span class="string">&#x27;z&#x27;</span>;c++)&#123; </span><br><span class="line">			<span class="keyword">if</span>(c == s[i] || m2.<span class="built_in">count</span>(c) || m1.<span class="built_in">count</span>(s[i])) <span class="keyword">continue</span>;</span><br><span class="line">			<span class="type">int</span> pa = d.<span class="built_in">find</span>(s[i] - <span class="string">&#x27;a&#x27;</span> + <span class="number">1</span>);</span><br><span class="line">			<span class="type">int</span> pb = d.<span class="built_in">find</span>(c - <span class="string">&#x27;a&#x27;</span> + <span class="number">1</span>);</span><br><span class="line">			<span class="keyword">if</span>(pa != pb || cnt == <span class="number">25</span>)&#123;</span><br><span class="line">				d.<span class="built_in">merge</span>(s[i] - <span class="string">&#x27;a&#x27;</span> + <span class="number">1</span>,c - <span class="string">&#x27;a&#x27;</span> + <span class="number">1</span>);</span><br><span class="line">				m1[s[i]] = c;</span><br><span class="line">				m2[c] = s[i];</span><br><span class="line">				cnt++;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n) <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,m1[s[i]]);</span><br><span class="line">	<span class="built_in">puts</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/03/%E9%9D%99%E7%94%B5%E5%9C%BA%E4%B8%AD%E7%9A%84%E5%AF%BC%E4%BD%93%E4%B8%8E%E7%94%B5%E4%BB%8B%E8%B4%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Foam">
+      <meta itemprop="description" content="有你在的地方，天气明朗，万物可爱。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="热爱可抵万难">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/03/%E9%9D%99%E7%94%B5%E5%9C%BA%E4%B8%AD%E7%9A%84%E5%AF%BC%E4%BD%93%E4%B8%8E%E7%94%B5%E4%BB%8B%E8%B4%A8/" class="post-title-link" itemprop="url">静电场中的导体与电介质</a>
+        </h2>
+
+        <div class="post-meta">
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-10-03 12:47:06 / 修改时间：13:12:45" itemprop="dateCreated datePublished" datetime="2022-10-03T12:47:06+08:00">2022-10-03</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="静电场中的导体"><a href="#静电场中的导体" class="headerlink" title="静电场中的导体"></a>静电场中的导体</h2><p>本节在做题时，通常按照以下思路去思考：</p>
+<p>一般条件:①相对表面电量抵消②孤立导体电荷守恒和</p>
+<p>特殊条件:①外部点电荷②接地(电视为0，电量可变)</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/01/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97%E4%BC%98%E5%8C%96dp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -743,146 +876,6 @@
 
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/18/linux%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Foam">
-      <meta itemprop="description" content="有你在的地方，天气明朗，万物可爱。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="热爱可抵万难">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/09/18/linux%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">linux学习</a>
-        </h2>
-
-        <div class="post-meta">
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-09-18 20:00:23 / 修改时间：20:18:36" itemprop="dateCreated datePublished" datetime="2022-09-18T20:00:23+08:00">2022-09-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Linux学习笔记"><a href="#Linux学习笔记" class="headerlink" title="Linux学习笔记"></a>Linux学习笔记</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/09/18/linux%E5%AD%A6%E4%B9%A0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/18/%E5%A4%A7%E7%89%A910/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Foam">
-      <meta itemprop="description" content="有你在的地方，天气明朗，万物可爱。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="热爱可抵万难">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/09/18/%E5%A4%A7%E7%89%A910/" class="post-title-link" itemprop="url">大学物理第十章</a>
-        </h2>
-
-        <div class="post-meta">
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-09-18 17:38:52 / 修改时间：18:05:24" itemprop="dateCreated datePublished" datetime="2022-09-18T17:38:52+08:00">2022-09-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="大学物理第十章要点"><a href="#大学物理第十章要点" class="headerlink" title="大学物理第十章要点"></a>大学物理第十章要点</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/09/18/%E5%A4%A7%E7%89%A910/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  
-
 
   
   <nav class="pagination">
@@ -954,7 +947,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1007,7 +1000,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共5.1k字</span>
+  <span class="post-count">博客全站共5.4k字</span>
 </div>
 
         
@@ -1062,61 +1055,6 @@
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-          load: ['[tex]/mhchem'],
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-          packages: {'[+]': ['mhchem']},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 

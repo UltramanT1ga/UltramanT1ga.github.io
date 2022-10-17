@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Linux学习笔记">
+  <meta name="description" content="组合逻辑电路">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux学习">
-<meta property="og:url" content="http://example.com/2022/09/18/linux%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:title" content="组合逻辑电路知识点">
+<meta property="og:url" content="http://example.com/2022/10/17/%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/index.html">
 <meta property="og:site_name" content="热爱可抵万难">
-<meta property="og:description" content="Linux学习笔记">
+<meta property="og:description" content="组合逻辑电路">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-09-18T12:00:23.000Z">
-<meta property="article:modified_time" content="2022-09-18T12:18:36.414Z">
+<meta property="article:published_time" content="2022-10-17T12:53:10.000Z">
+<meta property="article:modified_time" content="2022-10-17T13:07:17.581Z">
 <meta property="article:author" content="Foam">
-<meta property="article:tag" content="linux">
+<meta property="article:tag" content="数电">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/09/18/linux%E5%AD%A6%E4%B9%A0/">
+<link rel="canonical" href="http://example.com/2022/10/17/%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>linux学习 | 热爱可抵万难</title>
+  <title>组合逻辑电路知识点 | 热爱可抵万难</title>
   
 
 
@@ -172,7 +172,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/18/linux%E5%AD%A6%E4%B9%A0/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/17/%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -185,7 +185,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          linux学习
+          组合逻辑电路知识点
         </h1>
 
         <div class="post-meta">
@@ -198,7 +198,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-09-18 20:00:23 / 修改时间：20:18:36" itemprop="dateCreated datePublished" datetime="2022-09-18T20:00:23+08:00">2022-09-18</time>
+              <time title="创建时间：2022-10-17 20:53:10 / 修改时间：21:07:17" itemprop="dateCreated datePublished" datetime="2022-10-17T20:53:10+08:00">2022-10-17</time>
             </span>
 
           
@@ -212,13 +212,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Linux学习笔记"><a href="#Linux学习笔记" class="headerlink" title="Linux学习笔记"></a>Linux学习笔记</h1><span id="more"></span>
-<h2 id="git命令分类整理"><a href="#git命令分类整理" class="headerlink" title="git命令分类整理"></a>git命令分类整理</h2><h3 id="全局设置"><a href="#全局设置" class="headerlink" title="全局设置"></a><strong>全局设置</strong></h3><p><code>git config --global user.name xxx</code>：设置全局用户名，信息记录在<code>~/.gitconfig</code>文件中<br><code>git config --global user.email xxx@xxx.com</code>：设置全局邮箱地址，信息记录在<code>~/.gitconfig</code>文件中<br><code>git init</code>：将当前目录配置成git仓库，信息记录在隐藏的.git文件夹中</p>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a><strong>常用命令</strong></h3><p><code>git add XX</code>：将XX文件添加到暂存区<br><code>git commit -m</code> “给自己看的备注信息”：将暂存区的内容提交到当前分支<br><code>git status</code>：查看仓库状态<br><code>git log</code>：查看当前分支的所有版本<br><code>git push -u</code> :(第一次需要-u以后不需要) ：将当前分支推送到远程仓库<br><code>git clone XXX</code>：将远程仓库XXX下载到当前目录下<br><code>git branch</code>：查看所有分支和当前所处分支</p>
-<h3 id="查看命令"><a href="#查看命令" class="headerlink" title="查看命令"></a><strong>查看命令</strong></h3><p><code>git diff XX</code>：查看XX文件相对于暂存区修改了哪些内容<br><code>git status</code>：查看仓库状态<br><code>git log</code>：查看当前分支的所有版本<br><code>git log --pretty=oneline</code>：用一行来显示<br><code>git reflog</code>：查看HEAD指针的移动历史（包括被回滚的版本）<br><code>git branch</code>：查看所有分支和当前所处分支<br><code>git pull</code>：将远程仓库的当前分支与本地仓库的当前分支合并</p>
-<h3 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h3><p><code>git rm --cached XX</code>：将文件从仓库索引目录中删掉，不希望管理这个文件<br><code>git restore --staged xx</code>：==将xx从暂存区里移除==<br><code>git checkout — XX</code>或<code>git restore XX</code>：==将XX文件尚未加入暂存区的修改全部撤销==<br><strong>代码回滚</strong><br><code>git reset --hard HEAD^</code>或<code>git reset --hard HEAD~</code>：将代码库回滚到上一个版本<br><code>git reset --hard HEAD^^</code>：往上回滚两次，以此类推<br><code>git reset --hard HEAD~100</code>：往上回滚100个版本<br><code>git reset --hard 版本号</code>：回滚到某一特定版本</p>
-<h3 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a><strong>远程仓库</strong></h3><p><code>git remote add origin XXX</code>：将本地仓库关联到远程仓库<br><code>git push -u</code> (第一次需要-u以后不需要) ：将当前分支推送到远程仓库<br><code>git push origin branch_name</code>：将本地的某个分支推送到远程仓库<br><code>git clone XXX</code>：将远程仓库XXX下载到当前目录下<br><code>git push --set-upstream origin branch_name</code>：设置本地的branch_name分支对应远程仓库的branch_name分支<br><code>git push -d origin branch_name</code>：删除远程仓库的branch_name分支<br><code>git checkout -t origin/branch_name</code> 将远程的branch_name分支拉取到本地<br><code>git pull</code>：将远程仓库的当前分支与本地仓库的当前分支合并<br><code>git pull origin branch_name</code>：将远程仓库的branch_name分支与本地仓库的当前分支合并<br><code>git branch --set-upstream-to=origin/branch_name1 branch_name2</code>：将远程的branch_name1分支与本地的branch_name2分支对应<br>分支命令<br><code>git branch branch_name</code>：创建新分支<br><code>git branch</code>：查看所有分支和当前所处分支<br><code>git checkout -b branch_name</code>：创建并切换到branch_name这个分支<br><code>git checkout branch_name</code>：切换到branch_name这个分支<br><code>git merge branch_name</code>：将分支branch_name合并到当前分支上<br><code>git branch -d branch_name</code>：删除本地仓库的branch_name分支<br><code>git push --set-upstream origin branch_name</code>：设置本地的branch_name分支对应远程仓库的branch_name分支<br><code>git push -d origin branch_name</code>：删除远程仓库的branch_name分支<br><code>git checkout -t origin/branch_name</code> 将远程的branch_name分支拉取到本地<br><code>git pull</code> ：将远程仓库的当前分支与本地仓库的当前分支合并<br><code>git pull origin branch_name</code>：将远程仓库的branch_name分支与本地仓库的当前分支合并<br><code>git branch --set-upstream-to=origin/branch_name1 branch_name2</code>：将远程的branch_name1分支与本地的branch_name2分支对应</p>
-<h3 id="stash暂存"><a href="#stash暂存" class="headerlink" title="stash暂存"></a>stash暂存</h3><p><code>git stash</code>：将工作区和暂存区中尚未提交的修改存入栈中<br><code>git stash apply</code>：将栈顶存储的修改恢复到当前分支，但不删除栈顶元素<br><code>git stash drop</code>：删除栈顶存储的修改<br><code>git stash pop</code>：将栈顶存储的修改恢复到当前分支，同时删除栈顶元素<br><code>git stash list</code>：查看栈中所有元素</p>
+        <h2 id="组合逻辑电路"><a href="#组合逻辑电路" class="headerlink" title="组合逻辑电路"></a>组合逻辑电路</h2><span id="more"></span>
+<h3 id="卡诺图的化简"><a href="#卡诺图的化简" class="headerlink" title="卡诺图的化简"></a><strong>卡诺图的化简</strong></h3><ol>
+<li>圈0 —&gt; 写出反变量的与或式 或者按照0直接写出或与式</li>
+<li>化成与非式一般将与或式取两次反</li>
+<li>圈的原则：最少的圈(每个圈最好都有独有的1)，最大的圈</li>
+<li>n个变量有奇数个1 —&gt; Y = D1 ^ D2 ^…^Dn</li>
+<li></li>
+</ol>
 
     </div>
 
@@ -234,7 +235,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2022/09/18/linux%E5%AD%A6%E4%B9%A0/" title="linux学习">http://example.com/2022/09/18/linux学习/</a>
+    <a href="http://example.com/2022/10/17/%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/" title="组合逻辑电路知识点">http://example.com/2022/10/17/组合逻辑电路/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -247,7 +248,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/%E6%95%B0%E7%94%B5/" rel="tag"># 数电</a>
           </div>
 
         
@@ -256,13 +257,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/09/18/%E5%A4%A7%E7%89%A910/" rel="prev" title="大学物理第十章">
-      <i class="fa fa-chevron-left"></i> 大学物理第十章
+    <a href="/2022/10/11/%E6%A0%91%E5%BD%A2DP/" rel="prev" title="专题之树形DP">
+      <i class="fa fa-chevron-left"></i> 专题之树形DP
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/09/20/PN%E7%BB%93/" rel="next" title="PN结">
-      PN结 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -331,7 +329,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">Linux学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#git%E5%91%BD%E4%BB%A4%E5%88%86%E7%B1%BB%E6%95%B4%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">git命令分类整理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.1.1.</span> <span class="nav-text">全局设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.2.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.3.</span> <span class="nav-text">查看命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.4.</span> <span class="nav-text">删除命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">1.1.5.</span> <span class="nav-text">远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stash%E6%9A%82%E5%AD%98"><span class="nav-number">1.1.6.</span> <span class="nav-text">stash暂存</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF"><span class="nav-number">1.</span> <span class="nav-text">组合逻辑电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%A1%E8%AF%BA%E5%9B%BE%E7%9A%84%E5%8C%96%E7%AE%80"><span class="nav-number">1.1.</span> <span class="nav-text">卡诺图的化简</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -220,6 +220,7 @@
       
         <h2 id="单调队列优化dp"><a href="#单调队列优化dp" class="headerlink" title="单调队列优化dp"></a>单调队列优化dp</h2><p>利用单调队列优化dp是很常见的一种优化方式,单调队列的时间复杂度是O(n)，某些转移方程中涉及到一段<strong>连续区间转移</strong>时常用。要注意转移的连续区间左右端点需要有单调性才能使用单调队列优化</p>
 <span id="more"></span>
+
 <h3 id="多重背包"><a href="#多重背包" class="headerlink" title="多重背包"></a>多重背包</h3><p>利用单调队列可以将多重背包的时间复杂度优化至O(nm)，具体思路如下：</p>
 <p>我们观察多重背包的状态转移方程:</p>
 <p><code>f[i] = max(g[i - j * w] + j * v),其中0 &lt;= j &lt;= s[i];</code></p>
@@ -229,6 +230,9 @@
 <p>令<code>k = i - j</code>，则转移方程变为</p>
 <p><code>g[i * w + w0] = max(f[k * w + w0] - k * v) + i * v,其中i-c &lt;= k &lt;= i</code>，这样就可以顺利转移了！</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e4</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> p[N][<span class="number">2</span>],l,r,<span class="type">int</span> dp[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> n,m;</span><br><span class="line">	n = <span class="built_in">read</span>(),m = <span class="built_in">read</span>();</span><br><span class="line">	<span class="keyword">while</span>(n--)&#123;</span><br><span class="line">		<span class="type">int</span> w,v,s;</span><br><span class="line">		w = <span class="built_in">read</span>(),v = <span class="built_in">read</span>(),s = <span class="built_in">read</span>();</span><br><span class="line">		<span class="comment">//体积按%w分类做单调队列</span></span><br><span class="line">		<span class="built_in">rep</span>(w0,<span class="number">0</span>,w<span class="number">-1</span>)&#123;</span><br><span class="line">			l = <span class="number">0</span>,r=<span class="number">-1</span>;</span><br><span class="line">			<span class="comment">//k用来记录出队时间 注意有个s的偏移量</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> now = w0,k = <span class="number">0</span>;now &lt;= m;now += w,k++)&#123;</span><br><span class="line">				<span class="type">int</span> o = k + s,e = dp[now] - k * v;</span><br><span class="line">				<span class="keyword">while</span>(l &lt;= r &amp;&amp; p[r][<span class="number">0</span>] &lt;= e) r--;</span><br><span class="line">				p[++r][<span class="number">0</span>] = e,p[r][<span class="number">1</span>] = o;</span><br><span class="line">				dp[now] = p[l][<span class="number">0</span>] + k * v;</span><br><span class="line">				<span class="keyword">while</span>(l &lt;= r &amp;&amp; p[l][<span class="number">1</span>] == k) l++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,dp[m]);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 
     </div>
 
@@ -410,7 +414,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共9.5k字</span>
+  <span class="post-count">博客全站共10.1k字</span>
 </div>
 
         

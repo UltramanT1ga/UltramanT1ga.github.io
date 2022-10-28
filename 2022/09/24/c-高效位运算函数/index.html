@@ -213,19 +213,14 @@
 
       
         <h3 id="int-builtin-ffs-unsigned-int-x"><a href="#int-builtin-ffs-unsigned-int-x" class="headerlink" title="int __builtin_ffs (unsigned int x)"></a><code>int __builtin_ffs (unsigned int x)</code></h3><span id="more"></span>
-
 <p>返回x的最后一位1的是从后向前第几位，比如7368（1110011001000）返回4</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n = <span class="number">1</span>;<span class="comment">//1</span></span><br><span class="line"><span class="type">int</span> m = <span class="number">8</span>;<span class="comment">//1000</span></span><br><span class="line">cout&lt;&lt;__builtin_ffs(n)&lt;&lt;endl;<span class="comment">//输出1</span></span><br><span class="line">cout&lt;&lt;__builtin_ffs(m)&lt;&lt;endl;<span class="comment">//输出4</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="int-builtin-clz-unsigned-int-x"><a href="#int-builtin-clz-unsigned-int-x" class="headerlink" title="int __builtin_clz (unsigned int x)"></a><code>int __builtin_clz (unsigned int x)</code></h3><p>返回前导的0的个数。</p>
 <h3 id="int-builtin-ctz-unsigned-int-x"><a href="#int-builtin-ctz-unsigned-int-x" class="headerlink" title="int __builtin_ctz (unsigned int x)"></a><code>int __builtin_ctz (unsigned int x)</code></h3><p>返回后面的0个个数，和__builtin_clz相对。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n = <span class="number">1</span>;<span class="comment">//1</span></span><br><span class="line"><span class="type">int</span> m = <span class="number">8</span>;<span class="comment">//1000</span></span><br><span class="line">cout&lt;&lt;__builtin_ctzll(n)&lt;&lt;endl;<span class="comment">//输出0</span></span><br><span class="line">cout&lt;&lt;__builtin_ctz(m)&lt;&lt;endl;<span class="comment">//输出3</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="int-builtin-popcount-unsigned-int-x"><a href="#int-builtin-popcount-unsigned-int-x" class="headerlink" title="int __builtin_popcount (unsigned int x)"></a><code>int __builtin_popcount (unsigned int x)</code></h3><p>返回二进制表示中1的个数。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n = <span class="number">15</span>; <span class="comment">//二进制为1111</span></span><br><span class="line">cout&lt;&lt;__builtin_popcount(n)&lt;&lt;endl;<span class="comment">//输出4</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="int-builtin-parity-unsigned-int-x"><a href="#int-builtin-parity-unsigned-int-x" class="headerlink" title="int __builtin_parity (unsigned int x)"></a><code>int __builtin_parity (unsigned int x)</code></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n = <span class="number">15</span>;<span class="comment">//二进制为1111</span></span><br><span class="line"><span class="type">int</span> m = <span class="number">7</span>;<span class="comment">//111</span></span><br><span class="line">cout&lt;&lt;__builtin_parity(n)&lt;&lt;endl;<span class="comment">//偶数个，输出0</span></span><br><span class="line">cout&lt;&lt;__builtin_parity(m)&lt;&lt;endl;<span class="comment">//奇数个，输出1</span></span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -407,7 +402,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共11.6k字</span>
+  <span class="post-count">博客全站共11.5k字</span>
 </div>
 
         

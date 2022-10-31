@@ -20,30 +20,33 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="有你在的地方，天气明朗，万物可爱。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="热爱可抵万难">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="本文记录计数DP的一些题  QAQ题意：求一个字符串中“QAQ”的个数 此题用一种特殊的DP状态引出下一题 123456789101112131415161718192021222324#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int dp[3];int main() &amp;#123;	string s;	cin &gt;&gt; s;	int">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计数dp">
+<meta property="og:url" content="http://example.com/2022/10/30/%E8%AE%A1%E6%95%B0dp/index.html">
 <meta property="og:site_name" content="热爱可抵万难">
-<meta property="og:description" content="有你在的地方，天气明朗，万物可爱。">
+<meta property="og:description" content="本文记录计数DP的一些题  QAQ题意：求一个字符串中“QAQ”的个数 此题用一种特殊的DP状态引出下一题 123456789101112131415161718192021222324#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int dp[3];int main() &amp;#123;	string s;	cin &gt;&gt; s;	int">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-30T15:19:31.000Z">
+<meta property="article:modified_time" content="2022-10-30T15:26:19.491Z">
 <meta property="article:author" content="Foam">
+<meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/10/30/%E8%AE%A1%E6%95%B0dp/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>热爱可抵万难</title>
+  <title>计数dp | 热爱可抵万难</title>
   
 
 
@@ -162,9 +165,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -180,10 +184,9 @@
       <meta itemprop="name" content="热爱可抵万难">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/30/%E8%AE%A1%E6%95%B0dp/" class="post-title-link" itemprop="url">计数dp</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          计数dp
+        </h1>
 
         <div class="post-meta">
 
@@ -209,7 +212,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
+        <blockquote>
 <p>本文记录计数DP的一些题</p>
 </blockquote>
 <h2 id="QAQ"><a href="#QAQ" class="headerlink" title="QAQ"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/894/problem/A">QAQ</a></h2><p>题意：求一个字符串中“QAQ”的个数</p>
@@ -219,690 +222,63 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//dp[i][D][C] 表示从后往前到了当前字符 和DCDC匹配的位数为i</span></span><br><span class="line">ll dp[<span class="number">5</span>][M][M],cnt[M];</span><br><span class="line"><span class="comment">//和 平方和</span></span><br><span class="line">ll sumcnt,sumsqr;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(ll &amp;a,ll b)</span> </span>&#123;</span><br><span class="line">	a += b;</span><br><span class="line">	<span class="keyword">if</span>(a &gt;= P) a -= P;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//加入一个字符</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">	sumcnt++;</span><br><span class="line">	sumsqr += <span class="number">2</span> * cnt[x] + <span class="number">1</span>;</span><br><span class="line">	cnt[x]++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//删去一个字符</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">del</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">	sumcnt--;</span><br><span class="line">	sumsqr -= <span class="number">2</span> * cnt[x] - <span class="number">1</span>;</span><br><span class="line">	cnt[x]--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">convert</span><span class="params">(<span class="type">char</span> c)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(c &gt;= <span class="string">&#x27;a&#x27;</span> &amp;&amp; c &lt;= <span class="string">&#x27;z&#x27;</span>) <span class="keyword">return</span> c - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">	<span class="keyword">if</span>(c &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; c &lt;= <span class="string">&#x27;Z&#x27;</span>) <span class="keyword">return</span> <span class="number">26</span> + c - <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">52</span> + c - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//查询前面的情况(利用容斥而不是组合数可以减小常数)</span></span><br><span class="line"><span class="function">ll <span class="title">query</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//和平方减去平方和</span></span><br><span class="line">	<span class="keyword">return</span> ((sumcnt - cnt[x] - cnt[y]) * (sumcnt - cnt[x] - cnt[y]) - </span><br><span class="line">			(sumsqr - cnt[x] * cnt[x] - cnt[y] * cnt[y])) / <span class="number">2</span> % P;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	string s;</span><br><span class="line">	cin &gt;&gt; s;</span><br><span class="line">	<span class="comment">//预处理</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> i : s) <span class="built_in">add</span>(<span class="built_in">convert</span>(i));</span><br><span class="line">	<span class="comment">//dp数组初始化</span></span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">0</span>,M - <span class="number">1</span>) <span class="built_in">rep</span>(j,<span class="number">0</span>,M - <span class="number">1</span>) <span class="keyword">if</span>(i != j) dp[<span class="number">0</span>][i][j] = <span class="number">1</span>;</span><br><span class="line"> 	<span class="type">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line"> 	ll ans = <span class="number">0</span>;</span><br><span class="line"> 	<span class="built_in">per</span>(i,<span class="number">0</span>,n - <span class="number">1</span>) &#123;</span><br><span class="line"> 		<span class="type">int</span> D = <span class="built_in">convert</span>(s[i]);</span><br><span class="line"> 		<span class="built_in">del</span>(D);</span><br><span class="line"> 		<span class="comment">//只有包含D的dp状态才会被影响</span></span><br><span class="line"> 		<span class="built_in">rep</span>(C,<span class="number">0</span>,M - <span class="number">1</span>) <span class="keyword">if</span>(D != C) &#123;</span><br><span class="line"> 			<span class="comment">//还没匹配过 0 --&gt; D </span></span><br><span class="line"> 			<span class="built_in">add</span>(dp[<span class="number">1</span>][D][C],dp[<span class="number">0</span>][D][C]);</span><br><span class="line"> 			<span class="comment">//匹配了两个 DC --&gt; DCD</span></span><br><span class="line"> 			<span class="built_in">add</span>(dp[<span class="number">3</span>][D][C],dp[<span class="number">2</span>][D][C]);</span><br><span class="line"> 			<span class="comment">//匹配了一个 D --&gt; CD</span></span><br><span class="line"> 			<span class="built_in">add</span>(dp[<span class="number">2</span>][C][D],dp[<span class="number">1</span>][C][D]);</span><br><span class="line"> 			<span class="comment">//CDC --&gt; CDCD</span></span><br><span class="line"> 			<span class="built_in">add</span>(ans,dp[<span class="number">3</span>][C][D] * <span class="built_in">query</span>(C,D));</span><br><span class="line"> 			ans %= P;</span><br><span class="line"> 		&#125;</span><br><span class="line"> 	&#125;</span><br><span class="line"> 	<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>本题利用容斥求query避开组合数值得学习</p>
 
-      
     </div>
 
     
     
     
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/30/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Foam">
-      <meta itemprop="description" content="有你在的地方，天气明朗，万物可爱。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="热爱可抵万难">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/30/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="post-title-link" itemprop="url">最小生成树</a>
-        </h2>
-
-        <div class="post-meta">
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-10-30 22:37:48" itemprop="dateCreated datePublished" datetime="2022-10-30T22:37:48+08:00">2022-10-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-31 21:16:11" itemprop="dateModified" datetime="2022-10-31T21:16:11+08:00">2022-10-31</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>本文记录一些有关最小生成树的题</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/30/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Foam
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2022/10/30/%E8%AE%A1%E6%95%B0dp/" title="计数dp">http://example.com/2022/10/30/计数dp/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          </div>
 
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/24/CF(10.17-10.23)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Foam">
-      <meta itemprop="description" content="有你在的地方，天气明朗，万物可爱。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="热爱可抵万难">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/24/CF(10.17-10.23)/" class="post-title-link" itemprop="url">CF(10.17-10.23)</a>
-        </h2>
-
-        <div class="post-meta">
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-10-24 22:27:24" itemprop="dateCreated datePublished" datetime="2022-10-24T22:27:24+08:00">2022-10-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-28 12:34:12" itemprop="dateModified" datetime="2022-10-28T12:34:12+08:00">2022-10-28</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Save-the-Magazines-思维、DP"><a href="#Save-the-Magazines-思维、DP" class="headerlink" title="Save the Magazines(思维、DP)"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1743/problem/C">Save the Magazines</a>(思维、DP)</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/24/CF(10.17-10.23)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/20/%E7%8A%B6%E5%8E%8BDP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Foam">
-      <meta itemprop="description" content="有你在的地方，天气明朗，万物可爱。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="热爱可抵万难">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/20/%E7%8A%B6%E5%8E%8BDP/" class="post-title-link" itemprop="url">状压DP</a>
-        </h2>
-
-        <div class="post-meta">
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-10-20 15:19:49" itemprop="dateCreated datePublished" datetime="2022-10-20T15:19:49+08:00">2022-10-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-21 23:43:02" itemprop="dateModified" datetime="2022-10-21T23:43:02+08:00">2022-10-21</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Petya-and-Spiders"><a href="#Petya-and-Spiders" class="headerlink" title="Petya and Spiders"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/111/problem/C">Petya and Spiders</a></h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/20/%E7%8A%B6%E5%8E%8BDP/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/10/30/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" rel="prev" title="最小生成树">
+      <i class="fa fa-chevron-left"></i> 最小生成树
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
   
 
   
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/17/%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Foam">
-      <meta itemprop="description" content="有你在的地方，天气明朗，万物可爱。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="热爱可抵万难">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/17/%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/" class="post-title-link" itemprop="url">组合逻辑电路知识点</a>
-        </h2>
-
-        <div class="post-meta">
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-10-17 20:53:10 / 修改时间：21:07:17" itemprop="dateCreated datePublished" datetime="2022-10-17T20:53:10+08:00">2022-10-17</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
+   <div>
+     <div>
     
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
     
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="组合逻辑电路"><a href="#组合逻辑电路" class="headerlink" title="组合逻辑电路"></a>组合逻辑电路</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/17/%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
+</div>
+   </div>
   
-  
-  
-
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/11/%E6%A0%91%E5%BD%A2DP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Foam">
-      <meta itemprop="description" content="有你在的地方，天气明朗，万物可爱。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="热爱可抵万难">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/11/%E6%A0%91%E5%BD%A2DP/" class="post-title-link" itemprop="url">专题之树形DP</a>
-        </h2>
-
-        <div class="post-meta">
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-10-11 22:45:12" itemprop="dateCreated datePublished" datetime="2022-10-11T22:45:12+08:00">2022-10-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-14 12:54:51" itemprop="dateModified" datetime="2022-10-14T12:54:51+08:00">2022-10-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Weight-the-Tree"><a href="#Weight-the-Tree" class="headerlink" title="Weight the Tree"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1646/problem/D">Weight the Tree</a></h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/11/%E6%A0%91%E5%BD%A2DP/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/07/Round777/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Foam">
-      <meta itemprop="description" content="有你在的地方，天气明朗，万物可爱。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="热爱可抵万难">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/07/Round777/" class="post-title-link" itemprop="url">Codeforces Round 777 (Div. 2)</a>
-        </h2>
-
-        <div class="post-meta">
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-10-07 18:35:31" itemprop="dateCreated datePublished" datetime="2022-10-07T18:35:31+08:00">2022-10-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-17 20:52:45" itemprop="dateModified" datetime="2022-10-17T20:52:45+08:00">2022-10-17</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="B-Madoka-and-the-Elegant-Gift"><a href="#B-Madoka-and-the-Elegant-Gift" class="headerlink" title="B.Madoka and the Elegant Gift"></a>B.<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1647/problem/B">Madoka and the Elegant Gift</a></h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/07/Round777/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/05/%E5%8C%BA%E9%97%B4DP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Foam">
-      <meta itemprop="description" content="有你在的地方，天气明朗，万物可爱。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="热爱可抵万难">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/05/%E5%8C%BA%E9%97%B4DP/" class="post-title-link" itemprop="url">区间DP</a>
-        </h2>
-
-        <div class="post-meta">
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-10-05 23:14:05" itemprop="dateCreated datePublished" datetime="2022-10-05T23:14:05+08:00">2022-10-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-17 20:52:00" itemprop="dateModified" datetime="2022-10-17T20:52:00+08:00">2022-10-17</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="括号匹配"><a href="#括号匹配" class="headerlink" title="括号匹配"></a>括号匹配</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/05/%E5%8C%BA%E9%97%B4DP/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/04/Round824/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Foam">
-      <meta itemprop="description" content="有你在的地方，天气明朗，万物可爱。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="热爱可抵万难">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/04/Round824/" class="post-title-link" itemprop="url">Codeforces Round 824 (Div. 2)</a>
-        </h2>
-
-        <div class="post-meta">
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-10-04 13:56:14 / 修改时间：23:07:42" itemprop="dateCreated datePublished" datetime="2022-10-04T13:56:14+08:00">2022-10-04</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="C-Phase-Shift"><a href="#C-Phase-Shift" class="headerlink" title="C.Phase Shift"></a>C.<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1735/problem/C">Phase Shift</a></h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/04/Round824/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/03/%E9%9D%99%E7%94%B5%E5%9C%BA%E4%B8%AD%E7%9A%84%E5%AF%BC%E4%BD%93%E4%B8%8E%E7%94%B5%E4%BB%8B%E8%B4%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Foam">
-      <meta itemprop="description" content="有你在的地方，天气明朗，万物可爱。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="热爱可抵万难">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/03/%E9%9D%99%E7%94%B5%E5%9C%BA%E4%B8%AD%E7%9A%84%E5%AF%BC%E4%BD%93%E4%B8%8E%E7%94%B5%E4%BB%8B%E8%B4%A8/" class="post-title-link" itemprop="url">静电场中的导体与电介质</a>
-        </h2>
-
-        <div class="post-meta">
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-10-03 12:47:06 / 修改时间：13:12:45" itemprop="dateCreated datePublished" datetime="2022-10-03T12:47:06+08:00">2022-10-03</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="静电场中的导体"><a href="#静电场中的导体" class="headerlink" title="静电场中的导体"></a>静电场中的导体</h2><p>本节在做题时，通常按照以下思路去思考：</p>
-<p>一般条件:①相对表面电量抵消②孤立导体电荷守恒和</p>
-<p>特殊条件:①外部点电荷②接地(电视为0，电量可变)</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
 
 
@@ -954,6 +330,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#QAQ"><span class="nav-number">1.</span> <span class="nav-text">QAQ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ICPC-EC-Final-2020-A-Namomo-Sequence"><span class="nav-number">2.</span> <span class="nav-text">ICPC EC Final 2020 A, Namomo Sequence</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
